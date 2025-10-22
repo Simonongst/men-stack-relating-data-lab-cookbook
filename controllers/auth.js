@@ -24,6 +24,7 @@ const signUp = async (req, res) => {
     res.json({
       message: "Sign-up successful. Please sign-in at the sign-in screen.",
     });
+
   } catch (error) {
     console.log(error);
     res.send("Sign-up failed. Please try again later.");
