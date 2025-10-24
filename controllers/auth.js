@@ -1,5 +1,4 @@
 const express = require("express");
-const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
@@ -49,7 +48,7 @@ const signIn = async (req, res) => {
     }
 
     // There is a user AND they had the correct password. Time to make a JWT!
-    const claims = { username: userInDatabase.username };
+    const claims = { _id: userInDatabase._id.toString(), username: userInDatabase.username };
 
     const access = jwt.sign(claims, process.env.ACCESS_SECRET, {
       expiresIn: "15m",

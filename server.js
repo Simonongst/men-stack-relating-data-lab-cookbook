@@ -17,8 +17,8 @@ app.use(morgan("dev"));
 
 app.use('/auth', authController);
 app.use(isSignedIn);
+app.use('/users/foods',foodsController);
 app.use('/users', usersController);
-app.use('/users/:userId/foods',foodsController);
 
 const PORT = process.env.PORT ? process.env.PORT : "5001";
 
